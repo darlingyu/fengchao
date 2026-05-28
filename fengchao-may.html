@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>风巢 FENG CHAO · 五月风起</title>
+<meta property="og:title" content="风巢 FENG CHAO · 五月风起">
+<meta property="og:description" content="势·风向 | 破·技术 | 器·工具 — 2026年5月科技动态">
+<meta property="og:image" content="https://darlingyu.github.io/fengchao/cover.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap');
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  --accent-blue:#0071e3;--accent-purple:#6e3aff;
+  --accent-orange:#ff6b35;--accent-gold:#ff9f0a;
+  --accent-teal:#00c7be;
+  --text-primary:#f0f0f5;--text-secondary:#b0b0bb;
+  --text-muted:#6e6e7a;--bg-deep:#0a0a0a;--bg-card:rgba(20,20,30,0.7);
+  --border-subtle:rgba(255,255,255,0.06);
+  --radius-lg:20px;--radius-md:14px;--radius-sm:10px;
+}
+
+html{font-size:16px;-webkit-font-smoothing:antialiased}
+
+body{
+  font-family:'Noto Sans SC',-apple-system,BlinkMacSystemFont,'PingFang SC','Helvetica Neue',sans-serif;
+  color:var(--text-primary);background:var(--bg-deep);line-height:1.8;
+  overflow-x:hidden;
+}
+
+/* ==================== COVER ==================== */
+.cover{
+  min-height:100vh;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;text-align:center;padding:100px 40px;
+  position:relative;overflow:hidden;
+}
+.cover::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse at 30% 40%, rgba(0,113,227,0.15) 0%, transparent 55%),
+    radial-gradient(ellipse at 70% 60%, rgba(110,58,255,0.12) 0%, transparent 55%),
+    radial-gradient(ellipse at 50% 85%, rgba(0,199,190,0.08) 0%, transparent 45%),
+    var(--bg-deep);
+}
+.cover::after{
+  content:'';position:absolute;inset:0;
+  background:
+    repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.008) 2px, rgba(255,255,255,0.008) 4px);
+  z-index:0;
+}
+.cover>*{position:relative;z-index:1}
+
+.cover-badge{
+  font-size:0.7rem;letter-spacing:0.4em;text-transform:uppercase;
+  color:rgba(255,255,255,0.3);margin-bottom:40px;font-weight:400;
+}
+.cover-logo{
+  font-family:'Noto Serif SC',serif;font-size:7rem;font-weight:900;
+  background:linear-gradient(135deg,#0071e3 0%,#6e3aff 40%,#00c7be 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+  line-height:1;letter-spacing:0.15em;margin-bottom:12px;
+}
+.cover-sub{font-size:1rem;color:rgba(255,255,255,0.3);letter-spacing:0.3em;margin-bottom:50px}
+.cover-tagline{
+  display:flex;gap:60px;flex-wrap:wrap;justify-content:center;margin-bottom:50px;
+}
+.cover-tag{
+  display:flex;flex-direction:column;align-items:center;gap:10px;
+}
+.cover-tag-icon{font-size:2.5rem;opacity:0.7}
+.cover-tag-text{font-family:'Noto Serif SC',serif;font-size:1.1rem;font-weight:600;color:rgba(255,255,255,0.7);letter-spacing:0.1em}
+.cover-tag-sub{font-size:0.7rem;color:rgba(255,255,255,0.25);letter-spacing:0.15em}
+.cover-divider{width:60px;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.3),transparent);margin-bottom:40px}
+.cover-meta{font-size:0.8rem;color:rgba(255,255,255,0.2);letter-spacing:0.12em;line-height:2.2}
+.cover-scroll{
+  position:absolute;bottom:40px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  color:rgba(255,255,255,0.2);font-size:0.7rem;letter-spacing:0.2em;
+  animation:scrollFade 2.5s ease-in-out infinite;
+}
+@keyframes scrollFade{0%,100%{opacity:0.2}50%{opacity:0.5}}
+.cover-scroll-arrow{width:20px;height:20px;border-right:2px solid rgba(255,255,255,0.3);border-bottom:2px solid rgba(255,255,255,0.3);transform:rotate(45deg)}
+
+/* ==================== SECTION COMMON ==================== */
+.section{padding:40px 0;position:relative}
+.section-inner{max-width:900px;margin:0 auto;padding:0 40px}
+
+.section-header{
+  text-align:center;margin-bottom:56px;position:relative;
+}
+.section-icon{font-size:3rem;margin-bottom:12px;opacity:0.5}
+.section-num{
+  font-size:0.65rem;letter-spacing:0.4em;color:var(--text-muted);
+  text-transform:uppercase;display:block;margin-bottom:12px;font-weight:500;
+}
+.section-title{
+  font-family:'Noto Serif SC',serif;font-size:2.6rem;font-weight:700;
+  line-height:1.3;letter-spacing:0.06em;margin-bottom:10px;
+}
+.section-subtitle{
+  font-size:0.88rem;font-weight:300;letter-spacing:0.08em;
+}
+.section-line{
+  width:50px;height:2px;margin:20px auto 0;border-radius:2px;
+}
+
+/* ===== Section-specific colors ===== */
+.s1 .section-title{color:#5ea3f5}
+.s1 .section-subtitle{color:rgba(94,163,245,0.4)}
+.s1 .section-line{background:linear-gradient(90deg,var(--accent-blue),var(--accent-purple))}
+
+.s2 .section-title{color:#ff8a5c}
+.s2 .section-subtitle{color:rgba(255,138,92,0.4)}
+.s2 .section-line{background:linear-gradient(90deg,var(--accent-orange),var(--accent-gold))}
+
+.s3 .section-title{color:#3dd6cc}
+.s3 .section-subtitle{color:rgba(61,214,204,0.4)}
+.s3 .section-line{background:linear-gradient(90deg,var(--accent-teal),var(--accent-blue))}
+
+/* ==================== SECTION BGS ==================== */
+.section-bg{
+  position:absolute;inset:0;pointer-events:none;z-index:0;
+}
+.s1 .section-bg{
+  background:
+    radial-gradient(ellipse at 50% 30%, rgba(0,113,227,0.06) 0%, transparent 70%),
+    radial-gradient(ellipse at 80% 70%, rgba(110,58,255,0.04) 0%, transparent 60%);
+}
+.s2 .section-bg{
+  background:
+    radial-gradient(ellipse at 40% 40%, rgba(255,107,53,0.06) 0%, transparent 70%),
+    radial-gradient(ellipse at 60% 80%, rgba(255,159,10,0.04) 0%, transparent 60%);
+}
+.s3 .section-bg{
+  background:
+    radial-gradient(ellipse at 50% 60%, rgba(0,199,190,0.06) 0%, transparent 70%),
+    radial-gradient(ellipse at 30% 30%, rgba(0,113,227,0.04) 0%, transparent 60%);
+}
+
+/* ==================== DIVIDER BETWEEN SECTIONS ==================== */
+.section-divider{
+  max-width:900px;margin:0 auto;padding:0 40px;
+  display:flex;align-items:center;gap:20px;
+}
+.section-divider::before,
+.section-divider::after{
+  content:'';flex:1;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.08),transparent);
+}
+.section-divider-icon{font-size:1.2rem;opacity:0.3}
+
+/* ==================== ARTICLE CARD ==================== */
+.article{
+  background:var(--bg-card);border:1px solid var(--border-subtle);
+  border-radius:var(--radius-lg);padding:44px 48px;
+  margin-bottom:24px;backdrop-filter:blur(20px);
+  transition:all 0.35s ease;position:relative;overflow:hidden;
+}
+.article:hover{
+  background:rgba(30,30,45,0.8);
+  border-color:rgba(255,255,255,0.12);
+  transform:translateY(-2px);
+  box-shadow:0 12px 40px rgba(0,0,0,0.4);
+}
+.article::before{
+  content:'';position:absolute;top:0;left:0;bottom:0;width:3px;
+}
+.s1 .article::before{background:linear-gradient(180deg,var(--accent-blue),var(--accent-purple))}
+.s2 .article::before{background:linear-gradient(180deg,var(--accent-orange),var(--accent-gold))}
+.s3 .article::before{background:linear-gradient(180deg,var(--accent-teal),var(--accent-blue))}
+
+.article-meta{display:flex;align-items:center;gap:12px;margin-bottom:22px}
+.article-num{
+  width:30px;height:30px;border-radius:9px;font-size:0.78rem;font-weight:700;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  color:#fff;
+}
+.s1 .article-num{background:linear-gradient(135deg,var(--accent-blue),var(--accent-purple))}
+.s2 .article-num{background:linear-gradient(135deg,var(--accent-orange),var(--accent-gold))}
+.s3 .article-num{background:linear-gradient(135deg,var(--accent-teal),var(--accent-blue))}
+
+.article-cat{
+  font-size:0.65rem;letter-spacing:0.25em;font-weight:500;
+  text-transform:uppercase;
+}
+.s1 .article-cat{color:rgba(94,163,245,0.45)}
+.s2 .article-cat{color:rgba(255,138,92,0.45)}
+.s3 .article-cat{color:rgba(61,214,204,0.45)}
+
+.article-title{
+  font-family:'Noto Serif SC',serif;font-size:1.25rem;font-weight:700;
+  line-height:1.5;margin-bottom:20px;padding-bottom:20px;
+  border-bottom:1px solid var(--border-subtle);
+  color:var(--text-primary);
+}
+.article-body{
+  font-size:0.9rem;color:var(--text-secondary);line-height:2;
+  margin-bottom:20px;
+}
+.article-body p{margin-bottom:12px}
+.article-body p:last-child{margin-bottom:0}
+.article-body ul{list-style:none;padding:0;margin:14px 0}
+.article-body li{
+  padding:5px 0 5px 22px;position:relative;font-size:0.86rem;
+  color:var(--text-secondary);
+}
+.s1 .article-body li::before{content:'';position:absolute;left:0;top:13px;width:6px;height:6px;border-radius:50%;background:var(--accent-blue);opacity:0.6}
+.s2 .article-body li::before{content:'';position:absolute;left:0;top:13px;width:6px;height:6px;border-radius:3px;background:var(--accent-orange);opacity:0.6;transform:rotate(45deg)}
+.s3 .article-body li::before{content:'';position:absolute;left:0;top:13px;width:6px;height:6px;border-radius:50%;background:var(--accent-teal);opacity:0.6}
+.article-body strong{color:var(--text-primary);font-weight:600}
+
+/* Highlight */
+.hl{font-weight:700;font-size:1.1em;letter-spacing:0.02em}
+.s1 .hl{color:#5ea3f5}.s2 .hl{color:#ff8a5c}.s3 .hl{color:#3dd6cc}
+
+/* Link */
+.article-link{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:0.78rem;text-decoration:none;font-weight:500;
+  margin-bottom:20px;transition:gap 0.2s;
+}
+.article-link:hover{gap:10px}
+.s1 .article-link{color:rgba(94,163,245,0.7)}
+.s2 .article-link{color:rgba(255,138,92,0.7)}
+.s3 .article-link{color:rgba(61,214,204,0.7)}
+.article-link-arrow{opacity:0.6;font-size:0.9em}
+
+/* Comment */
+.article-comment{border-radius:var(--radius-sm);padding:18px 22px}
+.s1 .article-comment{background:rgba(0,113,227,0.06);border-left:3px solid rgba(0,113,227,0.3)}
+.s2 .article-comment{background:rgba(255,107,53,0.06);border-left:3px solid rgba(255,107,53,0.3)}
+.s3 .article-comment{background:rgba(0,199,190,0.06);border-left:3px solid rgba(0,199,190,0.3)}
+
+.comment-label{font-size:0.68rem;letter-spacing:0.2em;font-weight:600;margin-bottom:6px}
+.s1 .comment-label{color:rgba(94,163,245,0.5)}
+.s2 .comment-label{color:rgba(255,138,92,0.5)}
+.s3 .comment-label{color:rgba(61,214,204,0.5)}
+.comment-text{font-size:0.84rem;line-height:1.9;font-style:italic;color:var(--text-muted)}
+
+/* ==================== FOOTER ==================== */
+.footer{
+  text-align:center;padding:30px 40px 120px;
+  position:relative;max-width:900px;margin:0 auto;
+}
+.footer::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 0%, rgba(0,113,227,0.06) 0%, transparent 70%);
+}
+.footer-brand{
+  font-family:'Noto Serif SC',serif;font-size:2rem;font-weight:700;
+  background:linear-gradient(135deg,rgba(255,255,255,0.5),rgba(255,255,255,0.2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+  letter-spacing:0.12em;margin-bottom:8px;
+}
+.footer-sub{font-size:0.8rem;color:var(--text-muted);letter-spacing:0.15em;margin-bottom:36px}
+.footer-line{width:40px;height:1px;background:rgba(255,255,255,0.08);margin:0 auto 36px}
+.footer-copy{font-size:0.68rem;color:rgba(255,255,255,0.12);letter-spacing:0.08em;line-height:2.2}
+
+/* ==================== SCENE IMAGE SLOTS ==================== */
+.scene-image{
+  width:100%;height:240px;border-radius:var(--radius-lg);
+  margin-bottom:32px;position:relative;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+}
+.scene-image::before{
+  content:'';position:absolute;inset:0;z-index:0;
+}
+.scene-image::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 30%,rgba(10,10,10,0.9) 100%);
+  z-index:1;
+}
+.scene-image-placeholder{
+  position:relative;z-index:2;
+  font-size:3.5rem;opacity:0.25;
+}
+/* Theme-specific scene images */
+.s1-scene::before{
+  background:
+    radial-gradient(ellipse at 30% 50%, rgba(0,113,227,0.2) 0%, transparent 60%),
+    radial-gradient(ellipse at 70% 60%, rgba(110,58,255,0.15) 0%, transparent 60%),
+    linear-gradient(135deg, #0d1a2d 0%, #111830 40%, #0a0a0a 100%);
+  background-size:cover;
+}
+.s2-scene::before{
+  background:
+    radial-gradient(ellipse at 50% 40%, rgba(255,107,53,0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 30% 80%, rgba(255,159,10,0.1) 0%, transparent 50%),
+    linear-gradient(135deg, #1a100d 0%, #191210 40%, #0a0a0a 100%);
+}
+.s3-scene::before{
+  background:
+    radial-gradient(ellipse at 70% 40%, rgba(0,199,190,0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 30% 70%, rgba(0,113,227,0.1) 0%, transparent 50%),
+    linear-gradient(135deg, #0a1a18 0%, #0f1a18 40%, #0a0a0a 100%);
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media(max-width:768px){
+  .cover-logo{font-size:4rem}
+  .cover-tagline{gap:32px}
+  .cover-tag-icon{font-size:2rem}
+  .section-inner{padding:0 20px}
+  .section-title{font-size:1.8rem}
+  .article{padding:28px 22px;border-radius:var(--radius-md)}
+  .article-title{font-size:1.1rem}
+  .scene-image{height:160px}
+  .section-divider{padding:0 20px}
+}
+
+@media(max-width:480px){
+  .cover{padding:60px 24px}
+  .cover-logo{font-size:3rem}
+  .section-inner{padding:0 16px}
+  .article{padding:22px 18px}
+}
+</style>
+</head>
+<body>
+
+<!-- ==================== COVER ==================== -->
+<header class="cover">
+  <span class="cover-badge">Monthly Tech Digest · May 2026</span>
+  <h1 class="cover-logo">风 巢</h1>
+  <p class="cover-sub">FENG CHAO · 五月风起</p>
+  <div class="cover-tagline">
+    <div class="cover-tag">
+      <span class="cover-tag-icon">🌬️</span>
+      <span class="cover-tag-text">势 · 风向</span>
+      <span class="cover-tag-sub">INDUSTRY &amp; OPINION</span>
+    </div>
+    <div class="cover-tag">
+      <span class="cover-tag-icon">⚡</span>
+      <span class="cover-tag-text">破 · 技术</span>
+      <span class="cover-tag-sub">TECH BREAKTHROUGH</span>
+    </div>
+    <div class="cover-tag">
+      <span class="cover-tag-icon">🔧</span>
+      <span class="cover-tag-text">器 · 工具</span>
+      <span class="cover-tag-sub">TOOLS &amp; PRACTICE</span>
+    </div>
+  </div>
+  <div class="cover-divider"></div>
+  <p class="cover-meta">
+    捕捉全球科技脉搏 · 记录技术变革瞬间<br>
+    浙江广播电视传输发射中心技术科
+  </p>
+  <div class="cover-scroll">
+    <span>向下浏览</span>
+    <div class="cover-scroll-arrow"></div>
+  </div>
+</header>
+
+<!-- ==================== SECTION 1: 势·风向 ==================== -->
+<section class="section s1">
+  <div class="section-bg"></div>
+  <div class="section-inner">
+
+    <header class="section-header">
+      <div class="section-icon">🌬️</div>
+      <span class="section-num">Section 01</span>
+      <h2 class="section-title">势 · 风向</h2>
+      <p class="section-subtitle">洞察行业格局，感知技术风向</p>
+      <div class="section-line"></div>
+    </header>
+
+    <!-- Scene image slot -->
+    <div class="scene-image s1-scene">
+      <div class="scene-image-placeholder">🌐</div>
+    </div>
+
+    <!-- Article 1 -->
+    <div class="article">
+      <div class="article-meta">
+        <span class="article-num">1</span>
+        <span class="article-cat">Industry</span>
+      </div>
+      <h3 class="article-title">全球都没有解开数字广播这道题</h3>
+      <div class="article-body">
+        <p>数字广播（<span class="hl">DRM</span>、<span class="hl">DAB+</span>、<span class="hl">HD Radio</span> 等）改造后，广播台站获得了多项新能力：同播多套节目、传输图文数据、提供<span class="hl">北斗增强信号</span>、应急广播等。</p>
+        <p>技术已成熟多年，却缺乏合适的商业实体来承接新业务。这本账关乎商业模式的可持续性，必须由市场来解答——而这正是当前全球行业共同面临的、尚未解开的终极难题。</p>
+      </div>
+      <a class="article-link" href="https://mp.weixin.qq.com/s/mubTmROVl9tnqvQXnAjBdQ" target="_blank">
+        查看原文 <span class="article-link-arrow">→</span>
+      </a>
+      <div class="article-comment">
+        <div class="comment-label">💬 风评</div>
+        <p class="comment-text">市场的不回答，恰恰已回答。</p>
+      </div>
+    </div>
+
+    <!-- Article 2 -->
+    <div class="article">
+      <div class="article-meta">
+        <span class="article-num">2</span>
+        <span class="article-cat">Opinion</span>
+      </div>
+      <h3 class="article-title">创造"耶稣级奇迹"——让全球进入"全民高收入时代"</h3>
+      <div class="article-body">
+        <p><span class="hl">10 年</span>之内，人类亲自开车这件事会变成一种小众爱好，<span class="hl">90%</span> 的行驶里程，全部由 AI 接管。</p>
+        <p><span class="hl">Neuralink</span> 耶稣级技术，让瞎子复明，让瘫子起身，让失语者开口。两千年前这叫神迹，<span class="hl">2026 年</span>，这叫科技。</p>
+        <p>未来 AI 和机器人比人类更好地完成几乎所有工作，全球经济将会增长 <span class="hl">100 倍</span>。100 倍意味着那时候人类进入"<span class="hl">全民超高收入时代</span>"。物质极度丰富，疾病被攻克，没有人挨饿。</p>
+      </div>
+      <a class="article-link" href="https://zhuanlan.zhihu.com/p/2042128035500012396" target="_blank">
+        查看原文 <span class="article-link-arrow">→</span>
+      </a>
+      <div class="article-comment">
+        <div class="comment-label">💬 风评</div>
+        <p class="comment-text">马斯克在以色列特拉维夫第九届萨姆森国际智能出行峰会的发言有点吹牛、有点疯，但这个时代，我们最缺的，恰恰就是这种敢做梦的疯子。</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="section-divider"><span class="section-divider-icon">◆</span></div>
+
+<!-- ==================== SECTION 2: 破·技术 ==================== -->
+<section class="section s2">
+  <div class="section-bg"></div>
+  <div class="section-inner">
+
+    <header class="section-header">
+      <div class="section-icon">⚡</div>
+      <span class="section-num">Section 02</span>
+      <h2 class="section-title">破 · 技术</h2>
+      <p class="section-subtitle">技术突破改写规则，创新引领时代变革</p>
+      <div class="section-line"></div>
+    </header>
+
+    <!-- Scene image slot -->
+    <div class="scene-image s2-scene">
+      <div class="scene-image-placeholder">🚀</div>
+    </div>
+
+    <!-- Article 3 -->
+    <div class="article">
+      <div class="article-meta">
+        <span class="article-num">3</span>
+        <span class="article-cat">Breakthrough</span>
+      </div>
+      <h3 class="article-title">"韬定律"横空出世：中国创新正在改写后摩尔时代</h3>
+      <div class="article-body">
+        <p><strong>摩尔定律：</strong>在单位面积内塞进更多晶体管，从而提升算力、降低成本。</p>
+        <p><strong>华为韬定律：</strong>不再只是追求把晶体管做得更小，而是通过持续压缩信号传播时延、缩短数据传输时间，系统性降低时间常数 <span class="hl">τ（韬）</span>，实现整体性能跃升。</p>
+      </div>
+      <a class="article-link" href="https://baijiahao.baidu.com/s?id=1866228822390123773&wfr=spider&for=pc" target="_blank">
+        查看原文 <span class="article-link-arrow">→</span>
+      </a>
+      <div class="article-comment">
+        <div class="comment-label">💬 风评</div>
+        <p class="comment-text">或许会像电动汽车一样，中国芯片通过换道又一次实现超车突破。</p>
+      </div>
+    </div>
+
+    <!-- Article 4 -->
+    <div class="article">
+      <div class="article-meta">
+        <span class="article-num">4</span>
+        <span class="article-cat">Space</span>
+      </div>
+      <h3 class="article-title">最大最强 SpaceX 星舰 V3 发射成功</h3>
+      <div class="article-body">
+        <ul>
+          <li><strong>规模创纪录：</strong>全箭高达 <span class="hl">124 米</span></li>
+          <li><strong>核心动力升级：</strong>换装了 <span class="hl">33 台</span>新一代"<span class="hl">猛禽 3</span>"（Raptor 3）发动机</li>
+          <li><strong>深空任务能力：</strong>首次在飞船上集成了<span class="hl">在轨燃料加注系统</span></li>
+        </ul>
+      </div>
+      <a class="article-link" href="https://baijiahao.baidu.com/s?id=1865950897800918224&wfr=spider&for=pc" target="_blank">
+        查看原文 <span class="article-link-arrow">→</span>
+      </a>
+      <div class="article-comment">
+        <div class="comment-label">💬 风评</div>
+        <p class="comment-text">最近，我们神舟二十三号载人飞船也发射成功，如果未来中美合作，相信我们离火星将更近一步。</p>
+      </div>
+    </div>
+
+    <!-- Article 5 -->
+    <div class="article">
+      <div class="article-meta">
+        <span class="article-num">5</span>
+        <span class="article-cat">AI &amp; Cyber</span>
+      </div>
+      <h3 class="article-title">OpenAI 发布 GPT-5.5-Cyber，但真正的炸弹是 1.4 万亿美元</h3>
+      <div class="article-body">
+        <p><strong>GPT-5.5-Cyber：</strong></p>
+        <ul>
+          <li>毫秒级实时威胁检测（恶意软件、钓鱼攻击等）</li>
+          <li>自动化漏洞修复（自动生成并部署补丁）</li>
+          <li>攻击路径推演，预判网络薄弱环节</li>
+          <li>自动生成定制化安全策略</li>
+        </ul>
+        <p><strong><span class="hl">1.4 万亿美元</span>投资计划：</strong></p>
+        <ul>
+          <li>自建超大规模数据中心：全球建设超 <span class="hl">20 座</span>，单中心算力超 <span class="hl">10 万块 GPU</span></li>
+          <li>自研 AI 芯片：减少对英伟达依赖</li>
+          <li>建设全球算力分配网络：实现像电网一样的"保证算力容量"服务</li>
+        </ul>
+      </div>
+      <a class="article-link" href="https://baijiahao.baidu.com/s?id=1865658809381768020&wfr=spider&for=pc" target="_blank">
+        查看原文 <span class="article-link-arrow">→</span>
+      </a>
+      <div class="article-comment">
+        <div class="comment-label">💬 风评</div>
+        <p class="comment-text">本股神掐指一算，大家可以重点买入算力和电力两大板块。</p>
+      </div>
+    </div>
+
+    <!-- Article 6 -->
+    <div class="article">
+      <div class="article-meta">
+        <span class="article-num">6</span>
+        <span class="article-cat">Telecom</span>
+      </div>
+      <h3 class="article-title">6G 研发进入实景测试，2030 年将进入消费市场</h3>
+      <div class="article-body">
+        <ul>
+          <li><strong>通感一体：</strong>通信信号既能传输信息，又能像雷达一样感知环境</li>
+          <li><strong>空天一体：</strong>整合地面基站、低空无人机、低轨卫星等，实现全球无死角覆盖</li>
+          <li><strong>通智一体：</strong>通信网络直接搭载<span class="hl">AI 算力</span>，实现通信与计算的深度融合</li>
+        </ul>
+        <p><span class="hl">6G</span> 是一场覆盖空、天、地、海，融合通信、感知与人工智能的全方位技术革命，是推动社会迈向"<span class="hl">万物智联</span>"、塑造国家数字经济核心竞争力的重大战略布局。</p>
+      </div>
+      <a class="article-link" href="https://baijiahao.baidu.com/s?id=1866211341313825578&wfr=spider&for=pc" target="_blank">
+        查看原文 <span class="article-link-arrow">→</span>
+      </a>
+      <div class="article-comment">
+        <div class="comment-label">💬 风评</div>
+        <p class="comment-text">大胆预测，2030 年是中国人民换手机的大年。</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="section-divider"><span class="section-divider-icon">◆</span></div>
+
+<!-- ==================== SECTION 3: 器·工具 ==================== -->
+<section class="section s3">
+  <div class="section-bg"></div>
+  <div class="section-inner">
+
+    <header class="section-header">
+      <div class="section-icon">🔧</div>
+      <span class="section-num">Section 03</span>
+      <h2 class="section-title">器 · 工具</h2>
+      <p class="section-subtitle">善用利器，让创造更自由</p>
+      <div class="section-line"></div>
+    </header>
+
+    <!-- Scene image slot -->
+    <div class="scene-image s3-scene">
+      <div class="scene-image-placeholder">🎨</div>
+    </div>
+
+    <!-- Article 7 -->
+    <div class="article">
+      <div class="article-meta">
+        <span class="article-num">7</span>
+        <span class="article-cat">Tool</span>
+      </div>
+      <h3 class="article-title">敢想敢生成的 Image2</h3>
+      <div class="article-body">
+        <p><span class="hl">Image 2</span> 是当前 AI 生图领域能力断层领先的新一代图像生成大模型，主打超强推理能力和超高细节精度，在设计、电商等场景实用性提升显著。</p>
+      </div>
+      <a class="article-link" href="https://www.jiaotuai.cn/" target="_blank">
+        查看原文 · 注册填写邀请码 6R9MN <span class="article-link-arrow">→</span>
+      </a>
+      <div class="article-comment">
+        <div class="comment-label">💬 风评</div>
+        <p class="comment-text">四月和五月风巢的封面就是用 Image2 做的，上面查看原文的链接就是工具使用的地址，注册记得填写我的邀请码 6R9MN 哦。</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="footer">
+  <div class="footer-brand">风 巢</div>
+  <p class="footer-sub">FENG CHAO · 五月风起</p>
+  <div class="footer-line"></div>
+  <p class="footer-copy">
+    © 2026 风巢 FENG CHAO<br>
+    浙江广播电视传输发射中心技术科<br>
+    Monthly Tech Digest · May 2026
+  </p>
+</footer>
+
+</body>
+</html>
